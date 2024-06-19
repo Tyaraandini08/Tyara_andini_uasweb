@@ -1,0 +1,132 @@
+{% extends "dashboard/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="content">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-5 col-md-4">
+                <div class="icon-big text-center icon-warning">
+                  <i class="nc-icon nc-badge text-warning"></i>
+                </div>
+              </div>
+              <div class="col-7 col-md-8">
+                <div class="numbers">
+                  <p class="card-category">Pengguna</p>
+                  <p class="card-title">{{total}}<p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer ">
+            <hr>
+            <div class="stats">
+            <p class="card-category">Total Pengguna</p>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-5 col-md-4">
+                <div class="icon-big text-center icon-warning">
+                  <i class="nc-icon nc-box text-success"></i>
+                </div>
+              </div>
+              <div class="col-7 col-md-8">
+                <div class="numbers">
+                  <p class="card-category">Kategori</p>
+                  <p class="card-title">{{total_kategori}}<p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer ">
+            <hr>
+            <div class="stats">
+              <p class="card-category">Total Kategori</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-5 col-md-4">
+                <div class="icon-big text-center icon-warning">
+                  <i class="nc-icon nc-chart-bar-32 text-danger"></i>
+                </div>
+              </div>
+              <div class="col-7 col-md-8">
+                <div class="numbers">
+                  <p class="card-category">Artikel</p>
+                  <p class="card-title">{{total_artikel}}<p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer ">
+            <hr>
+            <div class="stats">
+              <p class="card-category">Total Artikel</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">{{title}}</h4>
+          </div>
+          <div class="card-body">
+            <div class="toolbar">
+              <p>
+                Hai, selamat datang di halaman dashboard berita kami! Di sini, Anda dapat menemukan berbagai artikel terbaru yang disusun dengan rapi untuk memenuhi kebutuhan informasi Anda. Kami berkomitmen untuk menyajikan konten yang berkualitas dan up-to-date, sehingga Anda selalu mendapatkan berita terkini dan terverifikasi.
+              </p>
+              <p>
+                Nikmati pengalaman membaca yang menyenangkan dan informatif di platform kami. Jangan ragu untuk menjelajahi berbagai kategori yang tersedia dan temukan artikel yang menarik bagi Anda. Kami berharap Anda menemukan inspirasi dan wawasan baru dari setiap tulisan yang kami sajikan.
+              </p>
+              <p>
+                Setiap artikel ditulis oleh penulis yang berpengalaman dan ahli di bidangnya. Kami memastikan bahwa setiap informasi yang kami berikan telah melalui proses verifikasi yang ketat untuk menjaga kredibilitas dan keakuratan berita. 
+              </p>
+              <p>
+                Selain itu, Anda dapat dengan mudah membagikan artikel favorit Anda ke media sosial langsung dari platform kami. Kami ingin memastikan bahwa informasi yang bermanfaat dapat tersebar luas dan memberi dampak positif bagi lebih banyak orang.
+              </p>
+              <p>
+                Terima kasih telah mengunjungi dashboard berita kami. Kami berharap Anda menikmati setiap artikel yang kami sajikan dan terus mendukung kami dalam menyebarkan informasi yang berkualitas. Selamat membaca!
+              </p>
+            </div>
+          </div><!-- end content-->
+        </div><!--  end card  -->
+      </div>
+    </div>
+    
+  </div>
+
+{% endblock content %}
+
+{% block js %}
+
+<script>
+  $(document).ready(function() {
+    // Javascript method's body can be found in assets/js/demos.js
+    demo.initDashboardPageCharts();
+
+
+    demo.initVectorMap();
+
+  });
+</script>
+
+{% endblock js %}

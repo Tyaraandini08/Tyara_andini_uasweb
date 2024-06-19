@@ -1,0 +1,62 @@
+{% extends "halaman/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="card card-body shadow-xl mx-3 mx-md-4 mt-7">
+    <div class="container">
+        <div class="row mt-sm-0 mt-5">
+            <div class="col-lg-3 col-md-4 position-relative ms-lg-auto">
+                <div class="p-3 text-center border-right-after">
+                    <i class="material-icons text-gradient text-primary text-5xl mb-3">email</i>
+                    <h6 class="mb-0">Email</h6>
+                    <p class="text-dark font-weight-normal">kontak@berita.com</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 position-relative">
+                <div class="p-3 text-center border-right-after">
+                    <i class="material-icons text-gradient text-primary text-5xl mb-3">call</i>
+                    <h6 class="mb-0">Telepon</h6>
+                    <p class="text-dark font-weight-normal">+62 812 3456 7890</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 me-lg-auto">
+                <div class="p-3 text-center">
+                    <i class="material-icons text-gradient text-primary text-5xl mb-3">contacts</i>
+                    <h6 class="mb-0">Kontak Person</h6>
+                    <p class="text-dark font-weight-normal">Tyara Andini</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-3 col-md-4 position-relative ms-lg-auto">
+                <div class="p-3 text-center border-right-after">
+                    <i class="material-icons text-gradient text-primary text-5xl mb-3">location_on</i>
+                    <h6 class="mb-0">Alamat</h6>
+                    <p class="text-dark font-weight-normal">Jl. Kebon Jeruk No. 27, Jakarta</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 position-relative">
+                <div class="p-3 text-center border-right-after">
+                    <i class="material-icons text-gradient text-primary text-5xl mb-3">public</i>
+                    <h6 class="mb-0">Website</h6>
+                    <p class="text-dark font-weight-normal"><a href="{% url 'home' %}" class="text-primary">www.beritaku.com</a></p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 me-lg-auto">
+                <div class="p-3 text-center">
+                    <i class="material-icons text-gradient text-primary text-5xl mb-3">share</i>
+                    <h6 class="mb-0">Media Sosial</h6>
+                    <p class="text-dark font-weight-normal">
+                        <a href="https://www.facebook.com/berita" class="text-primary">Facebook</a><br>
+                        <a href="https://www.twitter.com/berita" class="text-primary">Twitter</a><br>
+                        <a href="https://www.instagram.com/berita" class="text-primary">Instagram</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

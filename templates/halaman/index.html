@@ -1,0 +1,129 @@
+{% extends "halaman/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<header>
+    <div class="page-header min-vh-75" style="background-image: url('{% static 'img/layar.avif' %}');" loading="lazy">
+      <span class="mask bg-gradient-dark opacity-5"></span>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 text-center mx-auto">
+            <h1 class="text-white ">Selamat Datang di Website Tyara</h1>
+            <p class="lead pe-md-5 me-md-5 text-white opacity-8"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- -------- END HEADER 1 w/ text and image on right ------- -->
+  <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 mb-4" id="berita">
+    <section class="features-3 py-4">
+      <div class="container">
+        <div class="row text-center justify-content-center">
+          <div class="col-lg-6">
+            <h2>Selalu update dengan berita terkini</h2><br>
+            <ul class="navbar-nav d-lg-block d-none">
+              <li class="nav-item">
+                <a href="{% url 'home' %}#berita" class="btn {% if menu_aktif == 'ALL' %}bg-gradient-primary{% else %}bg-gradient-secondary{% endif %} w-auto me-2">ALL</a>
+                {% for kategori in data_kategori %}
+                    <a href="/?kategori={{ kategori.nama }}#berita" class="btn {% if menu_aktif == kategori.nama %}bg-gradient-primary{% else %}bg-gradient-secondary{% endif %} w-auto me-2">{{ kategori.nama }}</a>
+                {% endfor %}
+              </li>            
+            </ul>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="row">
+
+            {%for artikel in data_artikel %}
+          <div class="col-lg-4 mb-lg-0 mb-4">
+            <!-- Start Card Raised Header -->
+            <div class="card">
+              <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                <a class="d-block blur-shadow-image">
+                  {% if artikel.thumbnail %}
+                  <img src="{{artikel.thumbnail.url}}" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg" loading="lazy">
+                  {% else %}
+                  <img src="{% static 'img/tidakada.jpg' %}" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg" loading="lazy">
+                  {% endif %}
+                </a>
+              </div>
+              <div class="card-body">
+                <span class="text-gradient text-primary text-uppercase text-xs font-weight-bold">{{artikel.kategori}}</span>
+                <a href="{% url 'detail_artikel' artikel.slug %}" class="text-darker card-title mt-3 h5 d-block">
+                  {{artikel.judul}}
+                </a>
+                <p class="card-description mb-4">
+                  {{artikel.isi|safe|truncatechars:'150'}}
+                </p>
+                <a href="{% url 'detail_artikel' artikel.slug %}" class="btn btn-outline-primary btn-sm mb-0">Detail </a>
+                <div style="margin-top: 25px;" class="author align-items-center">
+                  <img src="{% static 'img/dinonyatyara.png' %}" alt="marie" class="avatar shadow" loading="lazy">
+                  <div class="name ps-2">
+                    <span>{{artikel.author}}</span>
+                    <div class="stats">
+                      <small>{{artikel.created_at|date:"d-m-Y"}}</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% empty %}
+          <div class="col-lg-4 mb-lg-0 mb-4">
+            <!-- Start Card Raised Header -->
+            <div class="card">
+              <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                <a class="d-block blur-shadow-image">
+                  <img src="{% static 'img/tidakada.jpg' %}" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg" loading="lazy">
+                </a>
+              </div>
+              <div class="card-body">
+                <span class="text-gradient text-primary text-uppercase text-xs font-weight-bold">Tidak Ada</span>
+                <a href="{% url 'home' %}#berita" class="text-darker card-title mt-3 h5 d-block">
+                  Oh tidak! Halaman tidak ditemukan.
+                </a>
+                <p class="card-description mb-4">
+                  Tidak dapat menemukan halaman yang Anda cari.kami sarankan Anda kembali ke beranda situs tersebut dan mencari informasi yang Anda butuhkan.
+                </p>
+                <a href="{% url 'home' %}#berita" class="btn btn-outline-primary btn-sm mb-0">Detail </a>
+                <div style="margin-top: 25px;" class="author align-items-center">
+                  <img src="{% static 'img/dinonyatyara.png' %}" alt="marie" class="avatar shadow" loading="lazy">
+                  <div class="name ps-2">
+                    <span>404</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <!-- -------- START PRE-FOOTER 8 w/ TEXT, BG IMAGE AND 2 BUTTONS ------- -->
+    {% comment %} <div class="container">
+      <div class="my-10 py-5 bg-gradient-dark position-relative border-radius-xl" style="background-image:url('https://images.unsplash.com/photo-1533563906091-fdfdffc3e3c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80')" loading="lazy">
+        <div class="container position-relative z-index-2">
+          <div class="row">
+            <div class="col-lg-5 col-md-8 m-auto text-start">
+              <h5 class="text-white mb-lg-0 mb-5">
+                For being a bright color. For standing out. But the time is now to be okay to be the greatest you.
+              </h5>
+            </div>
+            <div class="col-lg-6 m-auto">
+              <div class="row">
+                <div class="col-sm-4 col-6 ps-sm-0 ms-auto">
+                  <button type="button" class="btn bg-gradient-warning mb-0 ms-lg-3 ms-sm-2 mb-sm-0 mb-2 me-auto w-100 d-block">Start Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> {% endcomment %}
+    <!-- -------- END PRE-FOOTER 8 w/ TEXT, BG IMAGE AND 2 BUTTONS ------- -->
+  </div>
+
+{% endblock content %}

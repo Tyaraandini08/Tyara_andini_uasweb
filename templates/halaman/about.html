@@ -1,0 +1,50 @@
+{% extends "halaman/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="card card-body shadow-xl mx-3 mx-md-4 mt-6">
+    <!-- START Bagian Tentang/Penulis -->
+    <section class="py-8">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto text-center">
+                    <h4 class="text-gradient text-primary">Kenali Tim Kami</h4>
+                    <p class="lead">Kami adalah tim profesional yang berdedikasi untuk menyajikan berita terbaru dengan integritas dan semangat.</p>
+                </div>
+            </div>
+            <div class="row mt-lg-5 mt-4 justify-content-center">
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="card card-body">
+                        <div class="row">
+                            <div class="col-lg-5 text-end my-auto">
+                                <img class="avatar avatar-xxl border-radius-lg mt-n5" src="{% static 'img/dinonyatyara.png' %}" alt="Tyara Andini">
+                            </div>
+                            <div class="col-lg-7">
+                                <h5 class="mb-2">Tyara Andini</h5>
+                                <span class="badge badge-sm rounded-pill text-dark">Senior Developer Laravel</span>
+                                <p class="mt-2">Tyara adalah seorang pengembang berpengalaman dengan lebih dari 10 tahun pengalaman dalam pengembangan web dan semangat untuk menciptakan platform berita yang berpengaruh.</p>
+                                <div class="social-buttons mt-3">
+                                    <button type="button" class="btn btn-facebook btn-simple px-2 mb-0">
+                                        <i class="fab fa-facebook-f text-lg"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-dribbble btn-simple px-2 mb-0">
+                                        <i class="fab fa-dribbble text-lg"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-slack btn-simple px-2 mb-0">
+                                        <i class="fab fa-slack text-lg"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tambahkan anggota tim lain sesuai kebutuhan -->
+            </div>
+        </div>
+    </section>
+    <!-- END Bagian Tentang/Penulis -->
+</div>
+
+{% endblock content %}

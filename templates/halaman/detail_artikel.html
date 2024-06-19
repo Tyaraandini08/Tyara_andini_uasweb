@@ -1,0 +1,46 @@
+{% extends "halaman/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="card card-body shadow-xl mx-3 mx-md-4 mt-6">
+    <!-- START Blogs w/ 3 images & quote & text -->
+    <section class="py-5 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 ms-auto me-auto">
+            <div class="col-12 text-center">
+                {% if artikel.thumbnail %}
+                <img src="{{artikel.thumbnail.url}}" alt="Deskripsi Gambar" class="img-fluid mb-4" style="width: 900px; height: 300px;">
+                {% else %}
+                <img src="{% static 'img/tidakada.jpg' %}" alt="Deskripsi Gambar" class="img-fluid mb-4" style="width: 900px; height: 300px;">
+                {% endif %}
+            </div>
+            <div class="row text-center justify-content-center">
+              <div class="col-lg-6">
+                <span class="badge rounded-pill badge-primary">{{ artikel.kategori.nama }}</span>
+              </div>
+            </div>
+            <h6 class="opacity-7 text-uppercase font-weight-bolder text-sm text-center"></h6>
+            <h3 class="title mb-4">{{artikel.judul}}</h3>
+            <p class="text-dark">{{artikel.isi|safe}}
+            </p>
+            <h6 class="opacity-7 text-uppercase font-weight-bolder text-sm">Author</h6>
+            <div style="margin-top: 25px; margin-bottom : 90px" class="author align-items-center">
+                <img src="{% static 'img/dinonyatyara.png' %}" alt="marie" class="avatar shadow" loading="lazy">
+                <div class="name ps-2">
+                  <span>{{artikel.author}}</span>
+                  <div class="stats">
+                    <small>{{artikel.created_at|date:"d-m-Y"}}</small>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- -------   END PRE-FOOTER 2 - simple social line w/ title & 3 buttons    -------- -->
+  </div>
+
+{% endblock content %}
